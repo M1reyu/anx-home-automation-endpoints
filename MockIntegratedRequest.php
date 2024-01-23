@@ -27,6 +27,10 @@ function getMockTaskInfoObject($event, $context): array
         $taskInfo['finishedAt'] = $timeFinishedAt;
     }
 
+    if (!isset($event['data']['taskIdentifier'])) {
+        header('example: ' . $taskIdentifier);
+    }
+
     return [
         'status' => 200,
         'taskInfo' => $taskInfo,

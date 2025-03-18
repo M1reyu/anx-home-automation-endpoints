@@ -59,3 +59,12 @@ function getProgressFinishedTime(string $taskIdentifier = ''): int
 {
     return getProgressStartTime($taskIdentifier) + 100;
 }
+
+function getIntegerFromData(array $event, string $key, int $default = 100): int
+{
+    if (isset($event['data'][$key]) && is_numeric($event['data'][$key])) {
+        return (int) $event['data'][$key];
+    }
+
+    return $default;
+}
